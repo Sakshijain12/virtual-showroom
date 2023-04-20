@@ -73,7 +73,7 @@ function LandingPage() {
             >
                 <Meta
                     title={product.title}
-                    description={`$${product.price}`}
+                    description={`Rs${product.price}`}
                 />
             </Card>
         </Col>
