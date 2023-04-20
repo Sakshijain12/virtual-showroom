@@ -22,6 +22,7 @@ function UploadProductPage(props) {
     const [DescriptionValue, setDescriptionValue] = useState("")
     const [PriceValue, setPriceValue] = useState(0)
     const [ContinentValue, setContinentValue] = useState(1)
+    const [Weight, setWeight] = useState(0)
 
     const [Images, setImages] = useState([])
 
@@ -38,6 +39,10 @@ function UploadProductPage(props) {
         setPriceValue(event.currentTarget.value)
     }
 
+    const onWeightChange = (event) => {
+        setWeight(event.currentTarget.value)
+    }
+
     const onContinentsSelectChange = (event) => {
         setContinentValue(event.currentTarget.value)
     }
@@ -49,7 +54,7 @@ function UploadProductPage(props) {
         event.preventDefault();
 
 
-        if (!TitleValue || !DescriptionValue || !PriceValue ||
+        if (!TitleValue || !DescriptionValue || !PriceValue || !Weight ||
             !ContinentValue || !Images) {
             return alert('fill all the fields first!')
         }
@@ -59,6 +64,7 @@ function UploadProductPage(props) {
             title: TitleValue,
             description: DescriptionValue,
             price: PriceValue,
+            weight : Weight,
             images: Images,
             continents: ContinentValue,
         }
@@ -107,6 +113,13 @@ function UploadProductPage(props) {
                 <Input
                     onChange={onPriceChange}
                     value={PriceValue}
+                    type="number"
+                />
+                <br /><br />
+                <label>Weight(kg)</label>
+                <Input
+                    onChange={onWeightChange}
+                    value={Weight}
                     type="number"
                 />
                 <br /><br />
