@@ -116,7 +116,6 @@ function LandingPage() {
         if (category === "price") {
             let priceValues = handlePrice(filters)
             newFilters[category] = priceValues
-
         }
 
         console.log(newFilters)

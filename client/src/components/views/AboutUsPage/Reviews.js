@@ -1,5 +1,4 @@
 import React from 'react'
-import {Icon} from 'antd';
 
 function Reviews() {
     return (
@@ -15,7 +14,8 @@ function Reviews() {
            <li><p>"I ordered a new phone from this website and was very impressed with the selection and prices. The website was easy to navigate and the checkout process was smooth. The shipping was fast and my phone arrived in perfect condition. I would definitely recommend this website to anyone looking for quality products at great prices."</p></li>
            <li><p>"I recently purchased a gift for a friend from this website and was very impressed with the product selection and customer service. The gift arrived on time and my friend was thrilled with it. I will definitely be shopping here again for all my gift-giving needs."</p></li>
            <li> <p>"I've been a loyal customer of this website for years and have always been impressed with their commitment to quality and customer service. They offer a wide range of products and their prices are always competitive. Whenever I have had an issue, the customer service team has been quick to respond and resolve the problem. I highly recommend this website to anyone looking for a great shopping experience."</p></li>
-           </ul></div>
+           </ul>
+        </div>
     )
 }
 

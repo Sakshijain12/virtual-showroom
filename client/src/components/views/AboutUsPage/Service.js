@@ -1,5 +1,4 @@
 import React from 'react'
-import {Icon} from 'antd';
 function displayImage(src, width, height) {
     var img = document.createElement("img");
     img.src = src;

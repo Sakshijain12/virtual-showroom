@@ -117,7 +117,7 @@ function CartPage(props) {
 
             {/* Paypal Button */}
 
-            {/* {ShowTotal &&
+            {ShowTotal &&
 
                 <Paypal
                     toPay={Total}
@@ -126,7 +126,7 @@ function CartPage(props) {
                     transactionCanceled={transactionCanceled}
                 />
 
-            } */}
+            }
 
 
 

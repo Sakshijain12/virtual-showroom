@@ -11,11 +11,13 @@ import UploadProductPage from './views/UploadProductPage/UploadProductPage'
 import DetailProductPage from './views/DetailProductPage/DetailProductPage';
 import CartPage from './views/CartPage/CartPage';
 import HistoryPage from './views/HistoryPage/HistoryPage';
+import OrderList from './views/ProcessOrder/OrderList';
+import OrderView from './views/ProcessOrder/OrderView';
 ///
-import Team from './views/Team';
-import Service from './views/Service';
-import Reviews from './views/Reviews';
-import Contact from './views/Contact';
+import Team from './views/AboutUsPage/Team';
+import Service from './views/AboutUsPage/Service';
+import Reviews from './views/AboutUsPage/Reviews';
+import Contact from './views/AboutUsPage/Contact';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route exact path="/service" component={Auth(Service, true)} />
           <Route exact path="/reviews" component={Auth(Reviews, true)} />
           <Route exact path="/contacts" component={Auth(Contact, true)} />
+          <Route exact path="/orderlist" component={Auth(OrderList, true)} />
+          <Route exact path="/orderview" component={Auth(OrderView, true)} />
         </Switch>
       </div>
       <Footer />
