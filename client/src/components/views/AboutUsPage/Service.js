@@ -6,7 +6,7 @@ function displayImage(src, width, height) {
     img.height = height;
     document.body.appendChild(img);
    }
-   displayImage("./ROOM.jpg",100,100);
+//    displayImage("./ROOM.jpg",100,100);
 function Service() {
     return (
         <div style={{
