@@ -7,28 +7,28 @@ const price = [
     },
     {
         "_id": 1,
-        "name": "Rs 0 to Rs 4,999",
-        "array": [0, 4999]
+        "name": "Rs 0 to Rs 19,999",
+        "array": [0, 19999]
     },
     {
         "_id": 2,
-        "name": "Rs 5000 to Rs 9,999",
-        "array": [5000, 9999]
+        "name": "Rs 20,000 to Rs 39,999",
+        "array": [20000, 39999]
     },
     {
         "_id": 3,
-        "name": "Rs 10,000 to Rs 14,999",
-        "array": [10000, 14999]
+        "name": "Rs 40,000 to Rs 59,999",
+        "array": [40000, 59999]
     },
     {
         "_id": 4,
-        "name": "Rs 15,000 to Rs 19,999",
-        "array": [15000, 19999]
+        "name": "Rs 60,000 to Rs 79,999",
+        "array": [60000, 79999]
     },
     {
         "_id": 5,
-        "name": "More than Rs 20,000",
-        "array": [20000, 1500000]
+        "name": "More than Rs 80,000",
+        "array": [80000, 1500000]
     }
 ]
 
@@ -37,31 +37,31 @@ const price = [
 const continents = [
     {
         "_id": 1,
-        "name": "Queen-Bed"
+        "name": "14 * 16"
     },
     {
         "_id": 2,
-        "name": "King-Bed"
+        "name": "12 * 12"
     },
     {
         "_id": 3,
-        "name": "Sofa"
+        "name": "10 * 10"
     },
     {
         "_id": 4,
-        "name": "Mirror"
+        "name": "8 * 15"
     },
     {
         "_id": 5,
-        "name": "Tea-Table"
+        "name": "12 * 18"
     },
     {
         "_id": 6,
-        "name": "Stool"
+        "name": "12 * 16"
     },
     {
         "_id": 7,
-        "name": "Mat"
+        "name": "14 * 18"
     }
 ]
 

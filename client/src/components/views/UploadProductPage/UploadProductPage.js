@@ -7,13 +7,13 @@ const { Title } = Typography;
 const { TextArea } = Input;
 
 const Continents = [
-    { key: 1, value: "Queen-Bed" },
-    { key: 2, value: "King-Bed" },
-    { key: 3, value: "Sofa" },
-    { key: 4, value: "Mirror" },
-    { key: 5, value: "Tea-Table" },
-    { key: 6, value: "Stool" },
-    { key: 7, value: "Mat" }
+    { key: 1, value: "14 * 16" },
+    { key: 2, value: "12 * 12" },
+    { key: 3, value: "10 * 10" },
+    { key: 4, value: "8 * 15" },
+    { key: 5, value: "12 * 18" },
+    { key: 6, value: "12 * 16" },
+    { key: 7, value: "14 * 18" }
 ]
 
 function UploadProductPage(props) {
@@ -121,7 +121,7 @@ function UploadProductPage(props) {
                     type="number"
                 />
                 <br /><br />
-                <p> Item</p>
+                <p> Room Size</p>
                 <select onChange={onContinentsSelectChange} value={ContinentValue}>
                     {Continents.map(item => (
                         <option key={item.key} value={item.key}>{item.value} </option>
