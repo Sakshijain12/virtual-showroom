@@ -167,13 +167,8 @@ function LandingPage() {
 
             {/* Search  */}
             <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '1rem auto' }}>
-
-                <SearchFeature
-                    refreshFunction={updateSearchTerms}
-                />
-
+                <SearchFeature refreshFunction={updateSearchTerms}/>
             </div>
-
 
             {Products.length === 0 ?
                 <div style={{ display: 'flex', height: '300px', justifyContent: 'center', alignItems: 'center' }}>
@@ -181,16 +176,11 @@ function LandingPage() {
                 </div> :
                 <div>
                     <Row gutter={[16, 16]}>
-
                         {renderCards}
-
                     </Row>
-
-
                 </div>
             }
             <br /><br />
-
             {PostSize >= Limit &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <button onClick={onLoadMore}>Load More</button>

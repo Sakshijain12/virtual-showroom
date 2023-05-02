@@ -86,8 +86,6 @@ function UploadProductPage(props) {
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                 <Title level={2}> Upload Furniture Product</Title>
             </div>
-
-
             <Form onSubmit={onSubmit} >
 
                 {/* DropZone */}

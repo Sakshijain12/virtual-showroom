@@ -1,0 +1,19 @@
+id,type,material,color,height,length,width,quantity,load
+sofa#0001,sette,Linen,red,70,70,70,6,10
+sofa#0002,chesterfield,wool,green,56,56,56,12,31
+sofa#0003,loveseat,silk,green,98,98,98,12,25
+sofa#0004,cabriole,cotton,red,85,85,85,8,45
+sofa#0005,chaise,leather,yellow,70,70,70,4,63
+sofa#0006,mid-century modern,wood,brown,40,40,40,7,11
+sofa#0007,divan,plolyster,white,60,60,60,9,16
+sofa#0008,recamier,nylon,blue,59,59,59,19,25
+sofa#0009,futon,Linen,light-blue,70,70,70,21,27
+sofa#0010,sectional sofa,wool,pink,56,56,56,11,29
+sofa#0011,camelback,silk,black,98,98,98,10,34
+sofa#0012,lawson,cotton,purple,85,85,85,6,38
+sofa#0013,tuxedo,leather,black,70,70,70,8,42
+sofa#0014,mid-century modern,wood,white,40,40,40,9,29
+sofa#0015,divan,plolyster,green,60,60,60,25,45
+sofa#0016,recamier,nylon,blue,59,59,59,23,51
+sofa#0017,futon,Linen,red,97,97,97,31,24
+sofa#0018,sectional sofa,wool,brown,88,88,88,13,19
