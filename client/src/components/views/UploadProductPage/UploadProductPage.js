@@ -7,13 +7,13 @@ const { Title } = Typography;
 const { TextArea } = Input;
 
 const Continents = [
-    { key: 1, value: "14 * 16" },
-    { key: 2, value: "12 * 12" },
-    { key: 3, value: "10 * 10" },
-    { key: 4, value: "8 * 15" },
-    { key: 5, value: "12 * 18" },
-    { key: 6, value: "12 * 16" },
-    { key: 7, value: "14 * 18" }
+    { key: 1, value: "14 x 16" },
+    { key: 2, value: "12 x 12" },
+    { key: 3, value: "10 x 10" },
+    { key: 4, value: "8 *x15" },
+    { key: 5, value: "12 x 18" },
+    { key: 6, value: "12 x 16" },
+    { key: 7, value: "14 x 18" }
 ]
 
 function UploadProductPage(props) {

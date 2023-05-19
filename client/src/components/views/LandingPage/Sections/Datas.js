@@ -37,31 +37,31 @@ const price = [
 const continents = [
     {
         "_id": 1,
-        "name": "14 * 16"
+        "name": "14 x 16"
     },
     {
         "_id": 2,
-        "name": "12 * 12"
+        "name": "12 x 12"
     },
     {
         "_id": 3,
-        "name": "10 * 10"
+        "name": "10 x 10"
     },
     {
         "_id": 4,
-        "name": "8 * 15"
+        "name": "8 x 15"
     },
     {
         "_id": 5,
-        "name": "12 * 18"
+        "name": "12 x 18"
     },
     {
         "_id": 6,
-        "name": "12 * 16"
+        "name": "12 x 16"
     },
     {
         "_id": 7,
-        "name": "14 * 18"
+        "name": "14 x 18"
     }
 ]
 
