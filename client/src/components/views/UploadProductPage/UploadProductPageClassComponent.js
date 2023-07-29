@@ -6,7 +6,7 @@ import FileUpload from '../../utils/FileUpload';
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Continents = [
+const roomSize= [
     { key: 1, value: "14 * 16" },
     { key: 2, value: "12 * 12" },
     { key: 3, value: "10 * 10" },
@@ -21,7 +21,7 @@ export class UploadProductPage extends Component {
     state = {
         title: '',
         description: '',
-        continents: 1,
+        roomSize: 1,
         images: [],
         price: 0
     }
@@ -39,8 +39,8 @@ export class UploadProductPage extends Component {
         this.setState({ description: event.currentTarget.value })
     }
 
-    handleChangeContinents = (event) => {
-        this.setState({ continents: event.currentTarget.value })
+    handleChangeRoomSize = (event) => {
+        this.setState({ roomSize: event.currentTarget.value })
     }
 
     onSubmit = (event) => {
@@ -51,7 +51,7 @@ export class UploadProductPage extends Component {
         }
 
         if (!this.state.title || !this.state.description ||
-            !this.state.continents || !this.state.images
+            !this.state.roomSize || !this.state.images
             || !this.state.price) {
             return alert('Please first fill all the fields')
         }
@@ -61,7 +61,7 @@ export class UploadProductPage extends Component {
             title: this.state.title,
             description: this.state.description,
             images: this.state.images,
-            continents: this.state.continents,
+            roomSize: this.state.roomSize,
             price: this.state.price
         }
 
@@ -114,8 +114,8 @@ export class UploadProductPage extends Component {
                     value={this.state.price}
                 />
                 <br /><br />
-                <select onChange={this.handleChangeContinents}>
-                    {Continents.map(item => (
+                <select onChange={this.handleChangeRoomSize}>
+                    {roomSize.map(item => (
                         <option key={item.key} value={item.key}>{item.value}</option>
                     ))}
                 </select>

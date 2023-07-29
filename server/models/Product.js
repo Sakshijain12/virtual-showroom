@@ -29,6 +29,9 @@ const productSchema = mongoose.Schema({
         type: Number,
         default: 1
     },
+    roomSize: {
+        type : String
+    },
     sold: {
         type: Number,
         maxlength: 100,

@@ -6,11 +6,11 @@ import Axios from 'axios';
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Continents = [
+const roomSize = [
     { key: 1, value: "14 x 16" },
     { key: 2, value: "12 x 12" },
     { key: 3, value: "10 x 10" },
-    { key: 4, value: "8 *x15" },
+    { key: 4, value: "8 x 15" },
     { key: 5, value: "12 x 18" },
     { key: 6, value: "12 x 16" },
     { key: 7, value: "14 x 18" }
@@ -21,7 +21,7 @@ function UploadProductPage(props) {
     const [TitleValue, setTitleValue] = useState("")
     const [DescriptionValue, setDescriptionValue] = useState("")
     const [PriceValue, setPriceValue] = useState(0)
-    const [ContinentValue, setContinentValue] = useState(1)
+    const [roomSizeValue, setRoomSizeValue] = useState("")
     const [Weight, setWeight] = useState(0)
 
     const [Images, setImages] = useState([])
@@ -43,8 +43,8 @@ function UploadProductPage(props) {
         setWeight(event.currentTarget.value)
     }
 
-    const onContinentsSelectChange = (event) => {
-        setContinentValue(event.currentTarget.value)
+    const onRoomSizeSelectChange = (event) => {
+        setRoomSizeValue(event.currentTarget.value)
     }
 
     const updateImages = (newImages) => {
@@ -55,7 +55,7 @@ function UploadProductPage(props) {
 
 
         if (!TitleValue || !DescriptionValue || !PriceValue || !Weight ||
-            !ContinentValue || !Images) {
+            !roomSizeValue || !Images) {
             return alert('fill all the fields first!')
         }
 
@@ -66,7 +66,7 @@ function UploadProductPage(props) {
             price: PriceValue,
             weight : Weight,
             images: Images,
-            continents: ContinentValue,
+            roomSize: roomSizeValue,
         }
 
         Axios.post('/api/product/uploadProduct', variables)
@@ -78,7 +78,6 @@ function UploadProductPage(props) {
                     alert('Failed to upload Product')
                 }
             })
-
     }
 
     return (
@@ -122,8 +121,9 @@ function UploadProductPage(props) {
                 />
                 <br /><br />
                 <p> Room Size</p>
-                <select onChange={onContinentsSelectChange} value={ContinentValue}>
-                    {Continents.map(item => (
+                <select onChange={onRoomSizeSelectChange} value={roomSizeValue}>
+                    <option> {"Select"} </option>
+                    {roomSize.map(item => ( 
                         <option key={item.key} value={item.key}>{item.value} </option>
                     ))}
                 </select>
