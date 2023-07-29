@@ -16,11 +16,9 @@ function DetailProductPage(props) {
             .then(response => {
                 setProduct(response.data[0])
             })
-
     }, [])
 
     const addToCartHandler = (productId) => {
-        
         dispatch(addToCart(productId))
     }
 
