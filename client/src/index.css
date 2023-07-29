@@ -55,3 +55,25 @@ td,th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+
+
+/* Image Gallery*/
+
+.image-gallery {
+  width: 90%;
+  height: auto;
+} 
+
+.image-gallery-slide img {
+  width: 100%;
+  height: 300px;
+  max-height: 80vh;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: center center;
+}
+
+.fullscreen .image-gallery-slide img {
+  max-height: 100vh;
+}

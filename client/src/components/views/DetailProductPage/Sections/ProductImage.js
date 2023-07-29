@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ImageGallery from 'react-image-gallery';
+import "../../../../index.css"
+
 
 function ProductImage(props) {
     const [Images, setImages] = useState([])
