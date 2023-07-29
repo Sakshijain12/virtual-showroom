@@ -5,18 +5,16 @@ import { useSelector } from "react-redux";
 function ProductInfo(props) {
 
     const [Product, setProduct] = useState({})
-
+    const user = useSelector(state => state.user)
     useEffect(() => {
-
         setProduct(props.detail)
-
     }, [props.detail])
 
     const addToCarthandler = () => {
-            props.addToCart(props.detail._id)
+        props.addToCart(props.detail._id)
     }
 
-    const user = useSelector(state => state.user)
+    
     if (user.userData && !user.userData.isAuth){
         return (
             <div>
@@ -32,7 +30,7 @@ function ProductInfo(props) {
                 <br />
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Button size="large" shape="round" type="danger"
-                        href = "/login"
+                        href='/login'
                     >
                         Add to Cart
                         </Button>
