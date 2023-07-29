@@ -86,8 +86,6 @@ router.get('/addToCart', auth, (req, res) => {
                 duplicate = true;
             }
         })
-
-
         if (duplicate) {
             User.findOneAndUpdate(
                 { _id: req.user._id, "cart.id": req.query.productId },
@@ -262,6 +260,5 @@ router.get('/getHistory', auth, (req, res) => {
         }
     )
 })
-
 
 module.exports = router;
