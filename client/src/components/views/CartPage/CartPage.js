@@ -125,11 +125,7 @@ function CartPage(props) {
                     transactionError={transactionError}
                     transactionCanceled={transactionCanceled}
                 />
-
             }
-
-
-
         </div>
     )
 }
