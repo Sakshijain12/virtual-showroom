@@ -49,7 +49,6 @@ router.post("/uploadProduct", auth, (req, res) => {
         if (err) return res.status(400).json({ success: false, err })
         return res.status(200).json({ success: true })
     })
-
 });
 
 
@@ -80,6 +79,10 @@ router.post("/getProducts", (req, res) => {
     console.log(findArgs)
 
     if (term) {
+    const regex = new RegExp(term, "i"); // "i" flag makes the search case-insensitive
+
+    // Use the regular expression in the query to match partial text
+        findArgs = { ...findArgs, products: regex };
         Product.find(findArgs)
             .find({ $text: { $search: term } })
             .populate("writer")
@@ -101,7 +104,6 @@ router.post("/getProducts", (req, res) => {
                 res.status(200).json({ success: true, products, postSize: products.length })
             })
     }
-
 });
 
 

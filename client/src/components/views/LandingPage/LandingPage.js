@@ -4,7 +4,7 @@ import { Icon, Col, Card, Row } from 'antd';
 import ImageSlider from '../../utils/ImageSlider';
 import CheckBox from './Sections/CheckBox';
 import RadioBox from './Sections/RadioBox';
-import { continents, price } from './Sections/Datas';
+import { roomSize, price } from './Sections/Datas';
 import SearchFeature from './Sections/SearchFeature';
 
 const { Meta } = Card;
@@ -18,19 +18,16 @@ function LandingPage() {
     const [SearchTerms, setSearchTerms] = useState("")
 
     const [Filters, setFilters] = useState({
-        continents: [],
+        roomSize: [],
         price: []
     })
 
     useEffect(() => {
-
         const variables = {
             skip: Skip,
             limit: Limit,
         }
-
         getProducts(variables)
-
     }, [])
 
     const getProducts = (variables) => {
@@ -44,7 +41,7 @@ function LandingPage() {
                     }
                     setPostSize(response.data.postSize)
                 } else {
-                    alert('Failed to fectch product datas')
+                    alert('Failed to fetch product datas')
                 }
             })
     }
@@ -86,25 +83,36 @@ function LandingPage() {
             skip: 0,
             limit: Limit,
             filters: filters
-
         }
         getProducts(variables)
         setSkip(0)
-
     }
 
     const handlePrice = (value) => {
         const data = price;
         let array = [];
-
         for (let key in data) {
-
             if (data[key]._id === parseInt(value, 10)) {
                 array = data[key].array;
             }
         }
-        console.log('array', array)
         return array
+    }
+
+    const handleRoomSize = (value) => {
+        const data = roomSize;
+        let Size = [];
+        let i = 0;
+
+        for (let j = 0; j <  value.length; j++) {
+            for(let key in data){
+                if (data[key]._id === parseInt(value[j], 10)){
+                    Size[i] = data[key]._id;
+                    i = i+1;
+                }
+            }
+        }
+        return Size;
     }
 
     const handleFilters = (filters, category) => {
@@ -118,7 +126,11 @@ function LandingPage() {
             newFilters[category] = priceValues
         }
 
-        console.log(newFilters)
+        if (category === "roomSize") {
+            let roomSizeValues = handleRoomSize(filters)
+            newFilters[category] = roomSizeValues
+        }
+
 
         showFilteredResults(newFilters)
         setFilters(newFilters)
@@ -135,7 +147,6 @@ function LandingPage() {
 
         setSkip(0)
         setSearchTerms(newSearchTerm)
-
         getProducts(variables)
     }
 
@@ -152,8 +163,8 @@ function LandingPage() {
             <Row gutter={[16, 16]}>
                 <Col lg={12} xs={24} >
                     <CheckBox
-                        list={continents}
-                        handleFilters={filters => handleFilters(filters, "continents")}
+                        list={roomSize}
+                        handleFilters={filters => handleFilters(filters, "roomSize")}
                     />
                 </Col>
                 <Col lg={12} xs={24}>
@@ -186,8 +197,6 @@ function LandingPage() {
                     <button onClick={onLoadMore}>Load More</button>
                 </div>
             }
-
-
         </div>
     )
 }

@@ -34,7 +34,7 @@ const price = [
 
 
 
-const continents = [
+const roomSize = [
     {
         "_id": 1,
         "name": "14 x 16"
@@ -68,5 +68,5 @@ const continents = [
 
 export {
     price,
-    continents
+    roomSize
 }
