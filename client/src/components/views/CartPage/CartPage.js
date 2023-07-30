@@ -6,7 +6,8 @@ import {
     onSuccessBuy
 } from '../../../_actions/user_actions';
 import UserCardBlock from './Sections/UserCardBlock';
-import { Result, Empty } from 'antd';
+import { Result, Empty, Button } from 'antd';
+import PlaceOrderPage from '../PlaceOrderPage/PlaceOrderPage.js'
 import Axios from 'axios';
 import Paypal from '../../utils/Paypal';
 function CartPage(props) {
@@ -119,12 +120,13 @@ function CartPage(props) {
 
             {ShowTotal &&
 
-                <Paypal
-                    toPay={Total}
-                    onSuccess={transactionSuccess}
-                    transactionError={transactionError}
-                    transactionCanceled={transactionCanceled}
-                />
+                // <Paypal
+                //     toPay={Total}
+                //     onSuccess={transactionSuccess}
+                //     transactionError={transactionError}
+                //     transactionCanceled={transactionCanceled}
+                // />
+                <Button href={`/user/placeOrder/`}>Order</Button>
             }
         </div>
     )

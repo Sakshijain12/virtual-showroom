@@ -11,6 +11,7 @@ import UploadProductPage from './views/UploadProductPage/UploadProductPage'
 import DetailProductPage from './views/DetailProductPage/DetailProductPage';
 // import ProductInfo from './views/DetailProductPage/Sections/ProductInfo';
 import CartPage from './views/CartPage/CartPage';
+import PlaceOrderPage from './views/PlaceOrderPage/PlaceOrderPage';
 import HistoryPage from './views/HistoryPage/HistoryPage';
 import OrderList from './views/ProcessOrder/OrderList';
 import OrderView from './views/ProcessOrder/OrderView';
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />
           <Route exact path="/product/:productId" component={Auth(DetailProductPage, null)} />
           <Route exact path="/user/cart" component={Auth(CartPage, true)} />
+          <Route exact path="/user/placeOrder" component={Auth(PlaceOrderPage, true)} />
           <Route exact path="/history" component={Auth(HistoryPage, true)} />
 
           <Route exact path="/team" component={Auth(Team, true)} />

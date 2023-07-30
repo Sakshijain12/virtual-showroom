@@ -134,7 +134,6 @@ function UploadProductPage(props) {
                 >
                     Submit
                 </Button>
-
             </Form>
 
         </div>
