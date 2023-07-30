@@ -30,6 +30,7 @@ const AddressSchema = mongoose.Schema({
 const orderSchema = mongoose.Schema({
     userID : {
         type : mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
     address: {
         type: AddressSchema,
@@ -38,6 +39,10 @@ const orderSchema = mongoose.Schema({
     productList : {
         type : Array,
         default : []
+    },
+    status :{
+        type : String,
+        default : "Ordered"
     }
 }, { timestamps: true })
 
