@@ -6,7 +6,6 @@ const { auth } = require("../middleware/auth");
 router.post("/uploadOrder", auth, (req, res) => {
 
     //save all the data we got from the client into the DB 
-    console.log("Success");
     const order = new Order(req.body)
 
     order.save((err) => {
@@ -15,5 +14,12 @@ router.post("/uploadOrder", auth, (req, res) => {
     })
 });
 
+router.post("/onPlace", auth, (req, res) =>{
+    let hist = [];
+    hist = req.body.userData.cart;
+    console.log("history", hist);
+    if (err) return res.status(400).send(err)
+    return res.status(200).json({ success: true})
+})
 
 module.exports = router;
