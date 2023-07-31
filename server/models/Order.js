@@ -30,19 +30,41 @@ const AddressSchema = mongoose.Schema({
 const orderSchema = mongoose.Schema({
     userID : {
         type : mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        //ref : 'User'
     },
     address: {
-        type: AddressSchema,
-        required: true,
-      },
+        houseNumber: {
+            type : String,
+            required : true,
+        },
+        street: {
+            type : String,
+            required : true,
+        },
+        city: {
+            type : String,
+            required : true,
+        },
+        state: {
+            type : String,
+            required : true,
+        },
+        pinCode: {
+            type : Number,
+            required : true,
+        },
+        Phone: {
+            type : Number,
+            required : true,
+        }
+    },
     productList : {
         type : Array,
-        default : []
+        default : [],
     },
     status :{
         type : String,
-        default : "Ordered"
+        default : "Ordered",
     }
 }, { timestamps: true })
 
