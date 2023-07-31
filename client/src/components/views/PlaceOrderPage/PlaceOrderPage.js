@@ -13,7 +13,7 @@ function PlaceOrderPage(props){
         state: '',
         pinCode: 0,
         Phone: 0,
-      });
+      },[]);
 
       const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -30,11 +30,11 @@ function PlaceOrderPage(props){
             productList : props.user.userData.cart,
         }
 
-        Axios.post('http://localhost:5000/api/order/uploadOrder', variables)
+        Axios.post('/api/order/uploadOrder', variables)
             .then(response => {
                 if (response.data.success) {
                     alert('Order Successfully Placed')
-                    props.history.push('/')
+                    //props.history.push('/')
                 } else {
                     alert('Failed to Place Order')
                 }
