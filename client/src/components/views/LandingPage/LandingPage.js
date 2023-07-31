@@ -28,7 +28,7 @@ function LandingPage() {
             limit: Limit,
         }
         getProducts(variables)
-    }, [])
+    }, [Skip, Limit])
 
     const getProducts = (variables) => {
         Axios.post('/api/product/getProducts', variables)

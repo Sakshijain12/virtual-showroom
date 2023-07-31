@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
-import { Row, Col, Input } from 'antd';
-import { useDispatch } from 'react-redux';
+import { Row, Col } from 'antd';
+//import { useDispatch } from 'react-redux';
 import logo from "./ROOM.jpg"
 
-import csv from 'csvtojson';
+//import csv from 'csvtojson';
 
 
 function OrderView(props) {
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     const productId = props.productID
     console.log(productId);
     const [Product, setProduct] = useState([])
     const [Num, setNum] = useState(3)
 
-    const onNumChange = (event) => {
-      setNum(event.currentTarget.value)
-  }
+  //   const onNumChange = (event) => {
+  //     setNum(event.currentTarget.value)
+  // }
     useEffect(() => {
         Axios.get(`/api/orderview/products_by_id?id=${productId}&type=single`)
             .then(response => {
                 setProduct(response.data[0])
             })
 
-    }, [])
+    })
 
-    const addToCartHandler = (productId) => {
+    // const addToCartHandler = (productId) => {
         
-    }
+    // }
 
     
     // ##################3 Image rendering #######################
@@ -48,18 +48,18 @@ function OrderView(props) {
     ]
 
     // ############### csv File handeling ######################
-    const [File, setFile] = useState([]);
-    const [searchType, setSearchType] = useState('sette');
+    //const [File, setFile] = useState([]);
+    //const [searchType, setSearchType] = useState('sette');
 
-    useEffect(() => {
-      async function fetchData() {
-        const csvFilePath = './virtual-showroom - Almirah.csv';
-        const jsonArray = await csv().fromFile(csvFilePath);
-        console.log(jsonArray);
-        setFile(jsonArray);
-      }
-      fetchData();
-    }, []);
+    // useEffect(() => {
+    //   async function fetchData() {
+    //     const csvFilePath = './virtual-showroom - Almirah.csv';
+    //     const jsonArray = await csv().fromFile(csvFilePath);
+    //     console.log(jsonArray);
+    //     setFile(jsonArray);
+    //   }
+    //   fetchData();
+    // }, []);
 
     function handleSearch() {
       // const row = File.find(row => row.type == searchType);
