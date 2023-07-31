@@ -173,7 +173,8 @@ router.get('/userCartInfo', auth, (req, res) => {
 
 router.post('/successBuy', auth, (req, res) => {
     let history = [];
-    let transactionData = {};
+    console.log("yep")
+    // let transactionData = {};
 
     //1.Put brief Payment Information inside User Collection 
     req.body.cartDetail.forEach((item) => {
@@ -183,20 +184,21 @@ router.post('/successBuy', auth, (req, res) => {
             id: item._id,
             price: item.price,
             quantity: item.quantity,
-            paymentId: req.body.paymentData.paymentID
+            paymentId: item._id
+            // paymentId: req.body.paymentData.paymentID
         })
     })
 
     //2.Put Payment Information that come from Paypal into Payment Collection 
-    transactionData.user = {
-        id: req.user._id,
-        name: req.user.name,
-        lastname: req.user.lastname,
-        email: req.user.email
-    }
+    // transactionData.user = {
+    //     id: req.user._id,
+    //     name: req.user.name,
+    //     lastname: req.user.lastname,
+    //     email: req.user.email
+    // }
 
-    transactionData.data = req.body.paymentData;
-    transactionData.product = history
+    // transactionData.data = req.body.paymentData;
+    // transactionData.product = history
 
 
     User.findOneAndUpdate(
@@ -205,46 +207,49 @@ router.post('/successBuy', auth, (req, res) => {
         { new: true },
         (err, user) => {
             if (err) return res.json({ success: false, err });
-
-
-            const payment = new Payment(transactionData)
-            payment.save((err, doc) => {
-                if (err) return res.json({ success: false, err });
-
-                //3. Increase the amount of number for the sold information 
-
-                //first We need to know how many product were sold in this transaction for 
-                // each of products
-
-                let products = [];
-                doc.product.forEach(item => {
-                    products.push({ id: item.id, quantity: item.quantity })
-                })
-
-                // first Item    quantity 2
-                // second Item  quantity 3
-
-                async.eachSeries(products, (item, callback) => {
-                    Product.update(
-                        { _id: item.id },
-                        {
-                            $inc: {
-                                "sold": item.quantity
-                            }
-                        },
-                        { new: false },
-                        callback
-                    )
-                }, (err) => {
-                    if (err) return res.json({ success: false, err })
-                    res.status(200).json({
-                        success: true,
-                        cart: user.cart,
-                        cartDetail: []
-                    })
-                })
-
+            res.status(200).json({
+                success: true,
+                cart: user.cart,
+                cartDetail: []
             })
+
+            // const payment = new Payment(transactionData)
+            // payment.save((err, doc) => {
+            //     if (err) return res.json({ success: false, err });
+
+            //     //3. Increase the amount of number for the sold information 
+
+            //     //first We need to know how many product were sold in this transaction for 
+            //     // each of products
+
+            //     let products = [];
+            //     doc.product.forEach(item => {
+            //         products.push({ id: item.id, quantity: item.quantity })
+            //     })
+
+            //     // first Item    quantity 2
+            //     // second Item  quantity 3
+
+            //     async.eachSeries(products, (item, callback) => {
+            //         Product.update(
+            //             { _id: item.id },
+            //             {
+            //                 $inc: {
+            //                     "sold": item.quantity
+            //                 }
+            //             },
+            //             { new: false },
+            //             callback
+            //         )
+            //     }, (err) => {
+            //         if (err) return res.json({ success: false, err })
+            //         res.status(200).json({
+            //             success: true,
+            //             cart: user.cart,
+            //             cartDetail: []
+            //         })
+            //     })
+            // })
         }
     )
 })
@@ -259,6 +264,15 @@ router.get('/getHistory', auth, (req, res) => {
             return res.status(200).json({ success: true, history })
         }
     )
+})
+
+
+router.post('/onPlace', auth, (req, res) =>{
+    let hist = [];
+    hist = req.body.userData.cart;
+    console.log("history", hist);
+    if (err) return res.status(400).send(err)
+    return res.status(200).json({ success: true})
 })
 
 module.exports = router;

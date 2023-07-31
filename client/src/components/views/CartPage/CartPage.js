@@ -38,7 +38,7 @@ function CartPage(props) {
 
     const calculateTotal = (cartDetail) => {
         let total = 0;
-
+        console.log("cartD", cartDetail);
         cartDetail.map(item => {
             total += parseInt(item.price, 10) * item.quantity
         });

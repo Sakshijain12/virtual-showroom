@@ -1,10 +1,17 @@
 import React ,{useState} from 'react'
 import {Button, Form, Input, Typography} from 'antd'
+import { useDispatch } from 'react-redux';
 import Axios from 'axios'
+import {
+    //removeCartItem,
+    onSuccessBuy
+} from '../../../_actions/user_actions';
 const { Title } = Typography;
 
-function PlaceOrderPage(props){
+const async = require('async');
 
+function PlaceOrderPage(props){
+    const dispatch = useDispatch();
     //const [productList, setProductList] = useState([]);
     const [userAddress, setUserAddress] = useState({
         houseNumber: '',
@@ -20,20 +27,36 @@ function PlaceOrderPage(props){
         setUserAddress((prevAddress) => ({ ...prevAddress, [name]: value }));
       };
 
+    //   const removeFromCart = (productId) => {
+
+    //     dispatch(removeCartItem(productId))
+    //         .then((response) => {
+    //             if (response.payload.cartDetail.length <= 0) {
+    //                 setShowTotal(false)
+    //             } else {
+    //                 calculateTotal(response.payload.cartDetail)
+    //             }
+    //         })
+    // }
+
 
     const onSubmit = (event) =>{
         event.preventDefault();
-        console.log("cart",props.user.userData.cart)
         const variables = {
             userID: props.user.userData._id,
             address: userAddress,
             productList : props.user.userData.cart,
         }
-
-        Axios.post('http://localhost:5000/api/order/uploadOrder', variables)
+        Axios.post('/api/order/uploadOrder', variables)
             .then(response => {
                 if (response.data.success) {
                     alert('Order Successfully Placed')
+                    Axios.post('/api/order/onPlace', props._id)
+                    //  for(let idx = 0; idx < variables.productList.length; idx++){
+                    //     console.log("p_id", variables.productList[idx].id);
+                    //     removeCartItem(variables.productList[idx].id);
+                    // }
+
                     props.history.push('/')
                 } else {
                     alert('Failed to Place Order')
