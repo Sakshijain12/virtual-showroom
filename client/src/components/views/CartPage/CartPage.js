@@ -23,6 +23,7 @@ function CartPage(props) {
             if (props.user.userData.cart.length > 0) {
                 props.user.userData.cart.forEach(item => {
                     cartItems.push(item.id)
+                    console.log("productID ",item.id)
                 });
                 dispatch(getCartItems(cartItems, props.user.userData.cart))
                     .then((response) => {
