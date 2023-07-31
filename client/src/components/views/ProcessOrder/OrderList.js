@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Order from './Order';
 import Axios from 'axios';
-import { Icon, Col, Card, Row } from 'antd';
-import OrderView from './OrderView';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema,
-ObjectId = mongoose.Types.ObjectId;
+import { Col, Card, Row } from 'antd';
+//import OrderView from './OrderView';
+//var mongoose = require('mongoose');
+//ObjectId = mongoose.Types.ObjectId;
 
-const myObjectId = ObjectId("643e530c5045ceaa275fe25c")
+//const myObjectId = ObjectId("643e530c5045ceaa275fe25c")
 
 const list = ["643e530c5045ceaa275fe25c", "643e530c5045ceaa275fe25c", "643e530c5045ceaa275fe25c"];
 
@@ -26,7 +25,7 @@ function OrderList() {
         limit: Limit,
     }
     getProducts(variables)
-}, [])
+})
 
 const getProducts = (variables) => {
   Axios.post('/api/order/getOrders', variables)

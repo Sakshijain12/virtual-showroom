@@ -1,11 +1,11 @@
 import React ,{useState} from 'react'
-import {Button, Form, message, Input, Icon, Typography} from 'antd'
+import {Button, Form, Input, Typography} from 'antd'
 import Axios from 'axios'
 const { Title } = Typography;
 
 function PlaceOrderPage(props){
 
-    const [productList, setProductList] = useState([]);
+    //const [productList, setProductList] = useState([]);
     const [userAddress, setUserAddress] = useState({
         houseNumber: '',
         street: '',
@@ -18,7 +18,6 @@ function PlaceOrderPage(props){
       const handleInputChange = (e) => {
         const { name, value } = e.target;
         setUserAddress((prevAddress) => ({ ...prevAddress, [name]: value }));
-        console.log(userAddress);
       };
 
 
@@ -27,12 +26,11 @@ function PlaceOrderPage(props){
         console.log("cart",props.user.userData.cart)
         const variables = {
             userID: props.user.userData._id,
-            //address: userAddress,
-            Phone : userAddress.Phone,
+            address: userAddress,
             productList : props.user.userData.cart,
         }
 
-        Axios.post('/api/order/uploadOrder', variables)
+        Axios.post('http://localhost:5000/api/order/uploadOrder', variables)
             .then(response => {
                 if (response.data.success) {
                     alert('Order Successfully Placed')

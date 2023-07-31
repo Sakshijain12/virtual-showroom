@@ -1,11 +1,11 @@
 import React from 'react'
-function displayImage(src, width, height) {
-    var img = document.createElement("img");
-    img.src = src;
-    img.width = width;
-    img.height = height;
-    document.body.appendChild(img);
-   }
+// function displayImage(src, width, height) {
+//     var img = document.createElement("img");
+//     img.src = src;
+//     img.width = width;
+//     img.height = height;
+//     document.body.appendChild(img);
+//    }
 //    displayImage("./ROOM.jpg",100,100);
 function Service() {
     return (
