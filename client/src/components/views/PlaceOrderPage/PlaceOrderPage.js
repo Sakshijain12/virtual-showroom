@@ -20,7 +20,7 @@ function PlaceOrderPage(props){
         state: '',
         pinCode: 0,
         Phone: 0,
-      });
+      },[]);
 
       const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -47,10 +47,17 @@ function PlaceOrderPage(props){
             address: userAddress,
             productList : props.user.userData.cart,
         }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4f636adbad03f35818ca6ac895d8aad3c3402869
         Axios.post('/api/order/uploadOrder', variables)
             .then(response => {
                 if (response.data.success) {
                     alert('Order Successfully Placed')
+<<<<<<< HEAD
+                    //props.history.push('/')
+=======
                     Axios.post('/api/order/onPlace', props._id)
                     //  for(let idx = 0; idx < variables.productList.length; idx++){
                     //     console.log("p_id", variables.productList[idx].id);
@@ -58,6 +65,7 @@ function PlaceOrderPage(props){
                     // }
 
                     props.history.push('/')
+>>>>>>> 4f636adbad03f35818ca6ac895d8aad3c3402869
                 } else {
                     alert('Failed to Place Order')
                 }
