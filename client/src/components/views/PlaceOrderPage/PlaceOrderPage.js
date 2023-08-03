@@ -27,18 +27,6 @@ function PlaceOrderPage(props){
         setUserAddress((prevAddress) => ({ ...prevAddress, [name]: value }));
       };
 
-    //   const removeFromCart = (productId) => {
-
-    //     dispatch(removeCartItem(productId))
-    //         .then((response) => {
-    //             if (response.payload.cartDetail.length <= 0) {
-    //                 setShowTotal(false)
-    //             } else {
-    //                 calculateTotal(response.payload.cartDetail)
-    //             }
-    //         })
-    // }
-
 
     const onSubmit = (event) =>{
         event.preventDefault();
@@ -47,25 +35,24 @@ function PlaceOrderPage(props){
             address: userAddress,
             productList : props.user.userData.cart,
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 4f636adbad03f35818ca6ac895d8aad3c3402869
         Axios.post('/api/order/uploadOrder', variables)
             .then(response => {
                 if (response.data.success) {
-                    alert('Order Successfully Placed')
-<<<<<<< HEAD
-                    //props.history.push('/')
-=======
-                    Axios.post('/api/order/onPlace', props._id)
-                    //  for(let idx = 0; idx < variables.productList.length; idx++){
-                    //     console.log("p_id", variables.productList[idx].id);
-                    //     removeCartItem(variables.productList[idx].id);
-                    // }
-
-                    props.history.push('/')
->>>>>>> 4f636adbad03f35818ca6ac895d8aad3c3402869
+                console.log("uploadResponse",response.data);
+                alert('Order Successfully Placed')
+                    const orderDetail = {
+                        user : props.user.userData,
+                        orderId : response.data.orderId
+                    };
+                    console.log("orderDetial",orderDetail)
+                    Axios.post('/api/order/onPlace', orderDetail).then(response =>{
+                        if(response.data.success){
+                            console.log("onPlaceResponse",response.data);
+                            alert('history updates')
+                        }else{
+                            alert('Failed to Update Hostory')
+                        }
+                    })
                 } else {
                     alert('Failed to Place Order')
                 }

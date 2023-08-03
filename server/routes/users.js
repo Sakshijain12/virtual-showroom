@@ -266,13 +266,4 @@ router.get('/getHistory', auth, (req, res) => {
     )
 })
 
-
-router.post('/onPlace', auth, (req, res) =>{
-    let hist = [];
-    hist = req.body.userData.cart;
-    console.log("history", hist);
-    if (err) return res.status(400).send(err)
-    return res.status(200).json({ success: true})
-})
-
 module.exports = router;
