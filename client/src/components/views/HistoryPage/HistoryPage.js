@@ -1,7 +1,13 @@
 import React from 'react'
 
 function HistoryPage(props) {
-
+    const convertTimestampToDate = (timestamp) => {
+        const date = new Date(timestamp);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      };
     return (
         <div style={{ width: '80%', margin: '3rem auto' }}>
             <div style={{ textAlign: 'center' }}>
@@ -12,7 +18,7 @@ function HistoryPage(props) {
             <table>
                 <thead>
                     <tr>
-                        <th>Payment Id</th>
+                        <th>Order Id</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Date of Purchase</th>
@@ -23,12 +29,14 @@ function HistoryPage(props) {
 
                     {props.user.userData && props.user.userData.history &&
                         props.user.userData.history.map(item => (
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
-                                <td>{item.price}</td>
-                                <td>{item.quantity}</td>
-                                <td>{item.dateOfPurchase}</td>
+                            item.prodList.map(ele =>(
+                                <tr key={ele.id}>
+                                <td>{item.orderId}</td>
+                                <td>{ele.price}</td>
+                                <td>{ele.quantity}</td>
+                                <td>{convertTimestampToDate(ele.dateOfPurchase)}</td>
                             </tr>
+                            ))
                         ))}
 
 
