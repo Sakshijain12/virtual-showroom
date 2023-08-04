@@ -66,4 +66,31 @@ router.post("/onPlace", auth, async (req, res) =>{
     )
 })
 
+router.post("/getOrders", (req, res) => {
+  let order = req.body.order ? req.body.order : "desc";
+  let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
+  let findArgs = {};
+
+  Order.find(findArgs)
+    .sort([[sortBy, order]])
+    .exec((err, orders) => {
+      if(err) return res.status(400).json({success :false, err})
+      res.status(200).json({success : true, Orders: orders})
+    })
+})
+
+router.post("/updateStatus", (req, res) =>{
+  Order.findOneAndUpdate({_id : req.body.orderId},
+    {$set : {status : req.body.newStatus}},
+    { new: true },
+    (err, order) => {
+      if (err) return res.json({ success: false, err });
+      return res.status(200).json({
+          success: true,
+          orderStatus : order.status
+      })
+  }
+    )
+})
+
 module.exports = router;
