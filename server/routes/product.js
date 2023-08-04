@@ -75,7 +75,7 @@ router.post("/getProducts", (req, res) => {
         }
     }
 
-    console.log(findArgs)
+    console.log("findArgs",findArgs)
 
     if (term) {
     const regex = new RegExp(term, "i"); // "i" flag makes the search case-insensitive

@@ -64,7 +64,7 @@ const orderSchema = mongoose.Schema({
     },
     status :{
         type : String,
-        default : "Ordered",
+        default : "1",
     }
 }, { timestamps: true })
 
