@@ -93,4 +93,15 @@ router.post("/updateStatus", (req, res) =>{
     )
 })
 
+router.get('/get_order_by_id',(req, res) =>{
+  let order_id = req.query.id;
+  console.log("order id",order_id);
+  Order.find({'_id' : order_id}).exec((err, order)=>{
+    if(err) return res.status(400).send(err);
+    console.log("order",order)
+    console.log("order._id",order[0]._id)
+    res.status(200).send(order[0])
+  })
+})
+
 module.exports = router;

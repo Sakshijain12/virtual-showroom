@@ -14,6 +14,7 @@ function Contact() {
            <p>For any quality related query : 2100 - 300 -25552 (Mon - Fri)
             qua@abc.com (24*7)
            </p><br></br>
+           
         </div>
     )
 }
