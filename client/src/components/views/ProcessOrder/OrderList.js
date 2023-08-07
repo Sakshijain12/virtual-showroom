@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Order from './Order';
 import Axios from 'axios';
-import { Col, Card, Row } from 'antd';
-//import OrderView from './OrderView';
-//var mongoose = require('mongoose');
-//ObjectId = mongoose.Types.ObjectId;
 
-//const myObjectId = ObjectId("643e530c5045ceaa275fe25c")
-const { Meta } = Card;
 const statusArr = [
     {key:1, value : "Ordered"},
     {key:2, value : "Packed"},
@@ -67,8 +60,8 @@ function OrderList(props) {
       <table>
             <thead>
                 <tr>
-                    <th>User Name</th>
                     <th>Order Id</th>
+                    <th>User Name</th>
                     <th>Date of Purchase</th>
                     <th>Status</th>
                 </tr>
@@ -78,8 +71,8 @@ function OrderList(props) {
                 {props.user.userData &&
                     Orders.map((ele, index) => (
                         <tr key={ele._id}>
+                            <td><a href = {`/orderview/${ele._id}`}>{ele._id}</a></td>
                             <td>{ele.userID}</td>
-                            <td>{ele._id}</td>
                             <td>{ele.createdAt}</td>
                             <td>
                                 <select onChange={(event)=>onStatusChange(event, index, ele._id)} value={ele.status}>

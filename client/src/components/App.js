@@ -14,7 +14,7 @@ import CartPage from './views/CartPage/CartPage';
 import PlaceOrderPage from './views/PlaceOrderPage/PlaceOrderPage';
 import HistoryPage from './views/HistoryPage/HistoryPage';
 import OrderList from './views/ProcessOrder/OrderList';
-import OrderView from './views/ProcessOrder/OrderView';
+import OrderView from './views/ProcessOrder/Sections/OrderView';
 ///
 import Team from './views/AboutUsPage/Team';
 import Service from './views/AboutUsPage/Service';
@@ -41,7 +41,7 @@ function App() {
           <Route exact path="/reviews" component={Auth(Reviews, true)} />
           <Route exact path="/contacts" component={Auth(Contact, true)} />
           <Route exact path="/orderlist" component={Auth(OrderList, true)} />
-          <Route exact path="/orderview" component={Auth(OrderView, true)} />
+          <Route exact path="/orderview/:orderId" component={Auth(OrderView, true)} />
         </Switch>
       </div>
       <Footer />
