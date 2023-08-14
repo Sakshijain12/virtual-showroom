@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "homepage": "https://sakshijain12.github.io/virtual-showroom",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",
@@ -27,6 +28,8 @@
     "yup": "^0.27.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "http-proxy-middleware": "^1.0.3"
   }
 }
