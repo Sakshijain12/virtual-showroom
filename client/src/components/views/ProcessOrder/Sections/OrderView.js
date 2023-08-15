@@ -35,7 +35,7 @@ function OrderView(props) {
     console.log("prodList", products);
     setTimeout(() => {
       setProdList(products);
-    }, 1000);
+    }, 2000);
   };
 
 
