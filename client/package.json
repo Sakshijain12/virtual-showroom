@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://sakshijain12.github.io/virtual-showroom",
+  "homepage": "https://Sakshijain12.github.io/virtual-showroom",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",
