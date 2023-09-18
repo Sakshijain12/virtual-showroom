@@ -55,7 +55,7 @@ function OrderList(props) {
 
     }
   return (
-    <div className = "container">
+    <div style={{ width: '80%', margin: '3rem auto' }}>
       {/* {list.map(c => <Order productId={c}/>)} */}
       <table>
             <thead>
