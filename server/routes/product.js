@@ -2,41 +2,65 @@ const express = require('express');
 const router = express.Router();
 const { Product } = require("../models/Product");
 const multer = require('multer');
+require('dotenv').config();
 
 const { auth } = require("../middleware/auth");
+const { s3Uploadv3 } = require("./s3Service");
 
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './uploads')
-    },
-    filename: (req, file, cb) => {
-        cb(null, `${Date.now()}_${file.originalname}`)
-    },
-    fileFilter: (req, file, cb) => {
-        const ext = path.extname(file.originalname)
-        if (ext !== '.jpg' || ext !== '.png') {
-            return cb(res.status(400).end('only jpg, png are allowed'), false);
-        }
-        cb(null, true)
-    }
-})
+var storage = multer.memoryStorage()
+// var storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, './uploads')
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, `${Date.now()}_${file.originalname}`)
+//     },
+//     fileFilter: (req, file, cb) => {
+//         const ext = path.extname(file.originalname)
+//         if (ext !== '.jpg' || ext !== '.png') {
+//             return cb(res.status(400).end('only jpg, png are allowed'), false);
+//         }
+//         cb(null, true)
+//     }
+// })
 
-var upload = multer({ storage: storage }).single("file")
+// var upload = multer({ storage: storage }).single("file")
 
 
 //=================================
 //             Product
 //=================================
 
-router.post("/uploadImage", auth, (req, res) => {
-    upload(req, res, err => {
-        if (err) {
-            return res.json({ success: false, err })
-        }
-        return res.json({ success: true, image: res.req.file.path, fileName: res.req.file.filename })
-    })
+// router.post("/uploadImage", auth, (req, res) => {
+//     upload(req, res, err => {
+//         if (err) {
+//             return res.json({ success: false, err })
+//         }
+//         return res.json({ success: true, image: res.req.file.path, fileName: res.req.file.filename })
+//     })
+// });
 
-});
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype.split("/")[0] === "image") {
+        cb(null, true);
+      } else {
+        cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE"), false);
+      }
+    }
+const upload = multer({
+    storage,
+    fileFilter,
+  });
+
+router.post("/uploadImage", upload.array("file"), async (req, res) => {
+    try {
+      const results = await s3Uploadv3(req.files);
+      console.log(results);
+      return res.json({ success: true, image : results.Location, fileName : results.key});
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
 
 router.post("/uploadProduct", auth, (req, res) => {

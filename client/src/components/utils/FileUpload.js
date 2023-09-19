@@ -17,7 +17,7 @@ function FileUpload(props) {
         console.log("yes1")
         Axios.post('/api/product/uploadImage', formData, config)
             .then(response => {
-                console.log(response.data)
+                console.log("r", response.data)
                 if (response.data.success) {
                     console.log("yes3")
                     setImages([...Images, response.data.image])
