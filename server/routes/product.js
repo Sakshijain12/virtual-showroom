@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Product } = require("../models/Product");
 const multer = require('multer');
-require('dotenv').config();
+// require('dotenv').config();
 
 const { auth } = require("../middleware/auth");
 const { s3Uploadv3 } = require("./s3Service");
