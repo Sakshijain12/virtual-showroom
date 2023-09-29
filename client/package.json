@@ -4,7 +4,6 @@
   "homepage": "https://Sakshijain12.github.io/virtual-showroom",
   "private": true,
   "dependencies": {
-    "@react-google-maps/api": "^2.18.1",
     "antd": "^3.24.1",
     "axios": "^0.18.0",
     "csvtojson": "^2.0.10",
@@ -16,7 +15,6 @@
     "react-dropzone": "^10.2.1",
     "react-icons": "^3.7.0",
     "react-image-gallery": "^1.0.3",
-    "react-paypal-express-checkout": "^1.0.5",
     "react-redux": "^7.1.0-rc.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
