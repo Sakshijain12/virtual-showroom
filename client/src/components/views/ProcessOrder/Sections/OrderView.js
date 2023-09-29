@@ -78,7 +78,7 @@ function OrderView(props) {
       <Col key={i_idx} lg={6} md={8} xs={24}>
         <img
           style={{ maxWidth: "150px",minWidth:'150px', minHeight:'150px', maxHeight: '150px' , border:'solid'}}
-          src={`http://localhost:5000/${img}`}
+          src={img}
           alt={`productImage-${i_idx}`}
         />
       </Col>
