@@ -55,7 +55,6 @@ const upload = multer({
 router.post("/uploadImage", upload.array("file"), async (req, res) => {
     try {
       const results = await s3Uploadv3(req.files);
-      console.log("Result",results);
       return res.json({ success: true, image : results});
     } catch (err) {
       console.log(err);
@@ -99,7 +98,7 @@ router.post("/getProducts", (req, res) => {
         }
     }
 
-    console.log("findArgs",findArgs)
+    // console.log("findArgs",findArgs)
 
     if (term) {
     const regex = new RegExp(term, "i"); // "i" flag makes the search case-insensitive
@@ -136,7 +135,7 @@ router.get("/products_by_id", (req, res) => {
     let type = req.query.type
     let productIds = req.query.id
 
-    console.log("req.query.id", req.query.id)
+    // console.log("req.query.id", req.query.id)
 
     if (type === "array") {
         let ids = req.query.id.split(',');
@@ -146,7 +145,7 @@ router.get("/products_by_id", (req, res) => {
         })
     }
 
-    console.log("productIds", productIds)
+    // console.log("productIds", productIds)
 
 
     //we need to find the product information that belong to product Id 
