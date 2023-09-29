@@ -11,9 +11,10 @@
     "start": "node index.js",
     "backend": "nodemon index.js",
     "frontend": "npm run front --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+    "build": "npm i"
   },
-  "author": "John ahn",
+  "author": "SaNa",
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.391.0",
