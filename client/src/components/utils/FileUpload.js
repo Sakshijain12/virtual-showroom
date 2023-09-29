@@ -17,9 +17,8 @@ function FileUpload(props) {
         console.log("yes1")
         Axios.post('/api/product/uploadImage', formData, config)
             .then(response => {
-                console.log("r", response.data)
+                console.log("r", response);
                 if (response.data.success) {
-                    console.log("yes3")
                     setImages([...Images, response.data.image])
                     props.refreshFunction([...Images, response.data.image])
 
@@ -67,11 +66,9 @@ function FileUpload(props) {
 
                 {Images.map((image, index) => (
                     <div onClick={() => onDelete(image)}>
-                        <img style={{ minWidth: '300px', width: '300px', height: '240px' }} src={`http://localhost:5000/${image}`} alt={`productImg-${index}`} />
+                        <img style={{ minWidth: '300px', width: '300px', height: '240px' }} src={image} alt={`productImg-${index}`} />
                     </div>
                 ))}
-
-
             </div>
 
         </div>
@@ -79,3 +76,5 @@ function FileUpload(props) {
 }
 
 export default FileUpload
+
+//`http://localhost:5000/${image}`
