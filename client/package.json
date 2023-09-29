@@ -1,7 +1,6 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://Sakshijain12.github.io/virtual-showroom",
   "private": true,
   "dependencies": {
     "antd": "^3.24.1",
