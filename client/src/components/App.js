@@ -88,7 +88,7 @@ function App() {
             <Route exact path="/user/cart" component={Auth(CartPage, true)} />
             <Route exact path="/user/placeOrder" component={Auth(PlaceOrderPage, true)} />
             <Route exact path="/history" component={Auth(HistoryPage, true)} />
-            <Route exact path="/team" component={Auth(Team, true)} />
+            <Route exact path="/team" component= {Team} />
             <Route exact path="/service" component={Auth(Service, true)} />
             <Route exact path="/reviews" component={Auth(Reviews, true)} />
             <Route exact path="/contacts" component={Auth(Contact, true)} />
