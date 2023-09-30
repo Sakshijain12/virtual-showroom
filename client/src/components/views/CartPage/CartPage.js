@@ -14,7 +14,8 @@ function CartPage(props) {
     const dispatch = useDispatch();
     const [Total, setTotal] = useState(0)
     const [ShowTotal, setShowTotal] = useState(false)
-    const [ShowSuccess, setShowSuccess] = useState(false)
+    //const [ShowSuccess, setShowSuccess] = useState(false)
+    const ShowSuccess = true;
 
     useEffect(() => {
 
