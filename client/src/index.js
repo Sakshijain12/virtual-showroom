@@ -21,7 +21,7 @@ ReactDOM.render(
             window.__REDUX_DEVTOOLS_EXTENSION__()
         )}
     >
-        <BrowserRouter basename="/virtual-showroom">
+        <BrowserRouter basename="">
             <App />
         </BrowserRouter>
     </Provider>

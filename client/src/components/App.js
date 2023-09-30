@@ -52,7 +52,7 @@
 // export default App;
 
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
 import Auth from '../hoc/auth';
 
 // Import your components here
@@ -75,7 +75,6 @@ import Contact from './views/AboutUsPage/Contact';
 
 function App() {
   return (
-    <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <NavBar />
         <div style={{ paddingTop: '75px', minHeight: 'calc(100vh - 80px)' }}>
@@ -88,7 +87,7 @@ function App() {
             <Route exact path="/user/cart" component={Auth(CartPage, true)} />
             <Route exact path="/user/placeOrder" component={Auth(PlaceOrderPage, true)} />
             <Route exact path="/history" component={Auth(HistoryPage, true)} />
-            <Route exact path="/team" component= {Team} />
+            <Route exact path="/team" component={Auth(Team, true)} />
             <Route exact path="/service" component={Auth(Service, true)} />
             <Route exact path="/reviews" component={Auth(Reviews, true)} />
             <Route exact path="/contacts" component={Auth(Contact, true)} />
@@ -100,7 +99,6 @@ function App() {
         </div>
         <Footer />
       </Suspense>
-    </Router>
   );
 }
 
