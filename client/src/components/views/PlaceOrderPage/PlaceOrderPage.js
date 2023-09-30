@@ -35,7 +35,7 @@ function PlaceOrderPage(props){
             address: userAddress,
             productList : props.user.userData.cart,
         }
-        Axios.post('/api/order/uploadOrder', variables)
+        Axios.post('https://virtual-showroom.onrender.com/api/order/uploadOrder', variables)
             .then(response => {
                 if (response.data.success) {
                 console.log("uploadResponse",response.data);

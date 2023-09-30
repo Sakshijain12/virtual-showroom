@@ -24,7 +24,7 @@ function OrderView(props) {
   }, [Order])
 
   const getOrder = async (order_id) => {
-    const res = await Axios.get(`/api/order/get_order_by_id?id=${order_id}`);
+    const res = await Axios.get(`https://virtual-showroom.onrender.com/api/order/get_order_by_id?id=${order_id}`);
     setOrder(res.data);
   }
 
@@ -40,7 +40,7 @@ function OrderView(props) {
 
 
   const getProduct = async (prod_id) => {
-    Axios.get(`/api/product/products_by_id?id=${prod_id}&type=single`)
+    Axios.get(`https://virtual-showroom.onrender.com/api/product/products_by_id?id=${prod_id}&type=single`)
       .then(response => {
         console.log("prod", response.data[0]);
         products.push(response.data[0]);

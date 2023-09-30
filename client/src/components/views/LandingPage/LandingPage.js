@@ -31,7 +31,7 @@ function LandingPage() {
     }, [Skip, Limit])
 
     const getProducts = (variables) => {
-        Axios.post('/api/product/getProducts', variables)
+        Axios.post('https://virtual-showroom.onrender.com/api/product/getProducts', variables)
             .then(response => {
                 if (response.data.success) {
                     if (variables.loadMore) {

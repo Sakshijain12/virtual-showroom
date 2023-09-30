@@ -69,7 +69,7 @@ function UploadProductPage(props) {
             roomSize: roomSizeValue,
         }
 
-        Axios.post('/api/product/uploadProduct', variables)
+        Axios.post('https://virtual-showroom.onrender.com/api/product/uploadProduct', variables)
             .then(response => {
                 if (response.data.success) {
                     alert('Product Successfully Uploaded')

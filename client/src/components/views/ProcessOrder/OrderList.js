@@ -38,7 +38,7 @@ function OrderList(props) {
             orderId : id,
             newStatus : event.currentTarget.value
         }
-        Axios.post('/api/order/updateStatus', variables)
+        Axios.post('https://virtual-showroom.onrender.com/api/order/updateStatus', variables)
         .then(response => {
             if (response.data.success) {    
                 const updatedOrders = [...Orders];
